@@ -73,3 +73,16 @@ export const integerId = (ip) => {
 export const hexId = (ip) => {
     return integerId(ip).toString(16);
 }
+
+export const ipType = (ip) => {
+    ip = binaryId(ip);
+    if (ip >= 1010000000000000000000000000 && ip <= 1010111111111111111111111111) {
+        return 'Private';
+    } else if (ip >= 10101100000100000000000000000000 && ip <= 10101100000111111111111111111111) {
+        return 'Private';
+    } else if (ip >= 11000000101010000000000000000000 && ip <= 110000001010100001111111111111111) {
+        return 'Private';
+    } else {
+        return 'Public';
+    }
+}
