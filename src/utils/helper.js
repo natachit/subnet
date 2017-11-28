@@ -11,7 +11,8 @@ export const convertToSubnet = (mask) => {
 
 export const tenToBinary = (ip) => {
     const ip2 = ip.split('.').map((elem) => {
-        return ((+elem).toString(2));
+        var tmp = (+elem).toString(2);
+        return '0'.repeat(8-tmp.length) + tmp;
     });
     return ip2.join('.');
 }
