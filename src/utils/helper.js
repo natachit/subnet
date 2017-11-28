@@ -55,3 +55,7 @@ export const ipClass = (mask) => {
 export const cidr = (mask) => {
     return '/'+mask.toString();
 }
+
+export const short = (ip, mask) => {
+    return ip+cidr(mask);
+}
