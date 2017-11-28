@@ -100,3 +100,7 @@ export const totalHost = (ip, mask) => {
     nd = nd.join('');
     return parseInt(bc, 2)-parseInt(nd, 2)+1;
 }
+
+export const numHost = (ip, mask) => {
+    return totalHost(ip, mask)-2;
+}

@@ -1,5 +1,5 @@
-import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, 
-         ipClass, cidr, short, binaryId, integerId, hexId, ipType, broadcast, totalHost } from './helper';
+import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, ipClass, cidr, short, 
+        binaryId, integerId, hexId, ipType, broadcast, totalHost, numHost } from './helper';
 import { expect } from 'chai';
 
 describe('convert subnet test', () => {
@@ -96,5 +96,12 @@ describe('Total Number of Hosts', () => {
     it('Total Number of Hosts', () => {
         expect(totalHost('10.0.0.0', 25)).to.equal(128)
         expect(totalHost('10.0.0.0', 20)).to.equal(4096)
+    })
+})
+
+describe('Number of Usable Hosts', () => {
+    it('Number of Usable Hosts', () => {
+        expect(numHost('10.0.0.0', 25)).to.equal(126)
+        expect(numHost('10.0.0.0', 20)).to.equal(4094)
     })
 })
