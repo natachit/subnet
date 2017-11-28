@@ -1,4 +1,4 @@
-import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, ipClass, cidr, short, binaryId, integerId } from './helper';
+import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, ipClass, cidr, short, binaryId, integerId, hexId } from './helper';
 import { expect } from 'chai';
 
 describe('convert subnet test', () => {
@@ -62,5 +62,11 @@ describe('Binary ID', () => {
 describe('Integer ID', () => {
     it('Integer ID', () => {
         expect(integerId('192.168.1.254')).to.equal(3232236030);
+    })
+})
+
+describe('Hex ID', () => {
+    it('Hex ID', () => {
+        expect(hexId('192.168.1.254')).to.equal('c0a801fe');
     })
 })

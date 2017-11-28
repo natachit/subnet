@@ -67,3 +67,7 @@ export const binaryId = (ip) => {
 export const integerId = (ip) => {
     return parseInt(binaryId(ip),2);
 }
+
+export const hexId = (ip) => {
+    return integerId(ip).toString(16);
+}
