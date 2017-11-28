@@ -27,8 +27,14 @@ export const getNetworkAddress = (ip, mask) => {
     return netaddr.join('.');
 }
 
-export const ipRange = (ip, mask) => {
-    netaddr = getNetworkAddress(ip, mask);
+export const broadcast = (ip, mask) => {
+    let netaddr = tenToBinary(getNetworkAddress(ip, mask)).split('.').join('');
+    let bc = netaddr.substr(0, mask)+'1'.repeat(32-mask);
+    bc = bc.match(/.{8}/g);
+    const output = bc.map((elem) => {
+        return parseInt((+elem),2)
+    })
+    return output.join('.');
 }
 
 export const wildCard = (mask) => {

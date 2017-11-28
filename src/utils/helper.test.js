@@ -1,4 +1,5 @@
-import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, ipClass, cidr, short, binaryId, integerId, hexId, ipType } from './helper';
+import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, 
+         ipClass, cidr, short, binaryId, integerId, hexId, ipType, broadcast } from './helper';
 import { expect } from 'chai';
 
 describe('convert subnet test', () => {
@@ -81,5 +82,12 @@ describe('IP type', () => {
         expect(ipType('192.168.0.0')).to.equal('Private');
         expect(ipType('192.168.255.255')).to.equal('Private');
         expect(ipType('0.0.0.0')).to.equal('Public');
+    })
+})
+
+describe('Broadcast', () => {
+    it('Broadcast', () => {
+        expect(broadcast('10.0.0.0',8)).to.equal('10.255.255.255');
+        expect(broadcast('168.153.2.1',25)).to.equal('168.153.2.127');
     })
 })
