@@ -63,3 +63,7 @@ export const short = (ip, mask) => {
 export const binaryId = (ip) => {
     return tenToBinary(ip).split('.').join('');
 }
+
+export const integerId = (ip) => {
+    return parseInt(binaryId(ip),2);
+}
