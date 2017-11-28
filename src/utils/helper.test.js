@@ -1,5 +1,5 @@
 import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, 
-         ipClass, cidr, short, binaryId, integerId, hexId, ipType, broadcast } from './helper';
+         ipClass, cidr, short, binaryId, integerId, hexId, ipType, broadcast, totalHost } from './helper';
 import { expect } from 'chai';
 
 describe('convert subnet test', () => {
@@ -89,5 +89,12 @@ describe('Broadcast', () => {
     it('Broadcast', () => {
         expect(broadcast('10.0.0.0',8)).to.equal('10.255.255.255');
         expect(broadcast('168.153.2.1',25)).to.equal('168.153.2.127');
+    })
+})
+
+describe('Total Number of Hosts', () => {
+    it('Total Number of Hosts', () => {
+        expect(totalHost('10.0.0.0', 25)).to.equal(128)
+        expect(totalHost('10.0.0.0', 20)).to.equal(4096)
     })
 })

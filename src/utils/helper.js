@@ -92,3 +92,11 @@ export const ipType = (ip) => {
         return 'Public';
     }
 }
+
+export const totalHost = (ip, mask) => {
+    let bc = tenToBinary(broadcast(ip, mask)).split('.');
+    bc = bc.join('');
+    let nd = tenToBinary(getNetworkAddress(ip, mask)).split('.');
+    nd = nd.join('');
+    return parseInt(bc, 2)-parseInt(nd, 2)+1;
+}
