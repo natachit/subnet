@@ -13,7 +13,7 @@ export const tenToBinary = (ip) => {
     const ip2 = ip.split('.').map((elem) => {
         const tmp = (+elem).toString(2);
         return '0'.repeat(8-tmp.length) + tmp;
-    });
+    })
     return ip2.join('.');
 }
 
@@ -25,4 +25,19 @@ export const getNetworkAddress = (ip, mask) => {
         return parseInt((+elem),2)
     })
     return netaddr.join('.');
+}
+
+export const ipRange = (ip, mask) => {
+    netaddr = getNetworkAddress(ip, mask);
+}
+
+export const wildCard = (mask) => {
+    const subnet = [0, 0, 0, 0].map(() => {
+        const sub = '00000000'.split('').map(() => {
+            mask -=1;
+            return mask >=0 ? '0' : '1';
+        })
+        return parseInt(sub.join(''), 2);
+    });
+    return subnet.join('.');
 }

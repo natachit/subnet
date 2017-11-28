@@ -1,4 +1,4 @@
-import { convertToSubnet, tenToBinary, getNetworkAddress } from './helper';
+import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard } from './helper';
 import { expect } from 'chai';
 
 describe('convert subnet test', () => {
@@ -23,3 +23,11 @@ describe('Get Network Address', () => {
         expect(getNetworkAddress('158.108.12.34',19)).to.equal('158.108.0.0');
     })
 })
+
+describe('Wild card', () => {
+    it('Wild card', () => {
+        expect(wildCard(32)).to.equal('0.0.0.0');
+        expect(wildCard(1)).to.equal('127.255.255.255');
+    })
+})
+
