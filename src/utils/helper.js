@@ -51,3 +51,7 @@ export const ipClass = (mask) => {
         return 'C';
     }
 }
+
+export const cidr = (mask) => {
+    return '/'+mask.toString();
+}
