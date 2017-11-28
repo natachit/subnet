@@ -41,3 +41,13 @@ export const wildCard = (mask) => {
     });
     return subnet.join('.');
 }
+
+export const ipClass = (mask) => {
+    if (mask < 16) {
+        return 'A';
+    } else if (mask < 24) {
+        return 'B';
+    } else {
+        return 'C';
+    }
+}

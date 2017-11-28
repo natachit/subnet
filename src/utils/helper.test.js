@@ -1,4 +1,4 @@
-import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard } from './helper';
+import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, ipClass } from './helper';
 import { expect } from 'chai';
 
 describe('convert subnet test', () => {
@@ -28,6 +28,14 @@ describe('Wild card', () => {
     it('Wild card', () => {
         expect(wildCard(32)).to.equal('0.0.0.0');
         expect(wildCard(1)).to.equal('127.255.255.255');
+    })
+})
+
+describe('IP Class', () => {
+    it('IP Class', () => {
+        expect(ipClass(8)).to.equal('A');
+        expect(ipClass(16)).to.equal('B');
+        expect(ipClass(32)).to.equal('C');
     })
 })
 
