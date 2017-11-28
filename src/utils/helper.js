@@ -43,7 +43,9 @@ export const wildCard = (mask) => {
 }
 
 export const ipClass = (mask) => {
-    if (mask < 16) {
+    if (mask < 8) {
+        return 'None';
+    } else if (mask < 16) {
         return 'A';
     } else if (mask < 24) {
         return 'B';

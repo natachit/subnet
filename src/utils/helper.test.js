@@ -36,6 +36,7 @@ describe('IP Class', () => {
         expect(ipClass(8)).to.equal('A');
         expect(ipClass(16)).to.equal('B');
         expect(ipClass(32)).to.equal('C');
+        expect(ipClass(7)).to.equal('None');
     })
 })
 
