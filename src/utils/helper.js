@@ -59,3 +59,7 @@ export const cidr = (mask) => {
 export const short = (ip, mask) => {
     return ip+cidr(mask);
 }
+
+export const binaryId = (ip) => {
+    return tenToBinary(ip).split('.').join('');
+}

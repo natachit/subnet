@@ -1,4 +1,4 @@
-import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, ipClass, cidr, short } from './helper';
+import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, ipClass, cidr, short, binaryId } from './helper';
 import { expect } from 'chai';
 
 describe('convert subnet test', () => {
@@ -50,5 +50,11 @@ describe('cidr', () => {
 describe('short', () => {
     it('short', () => {
         expect(short('192.168.1.254',16)).to.equal('192.168.1.254/16');
+    })
+})
+
+describe('Binary ID', () => {
+    it('Binary ID', () => {
+        expect(binaryId('192.168.1.254')).to.equal('11000000101010000000000111111110');
     })
 })
