@@ -104,3 +104,11 @@ export const totalHost = (ip, mask) => {
 export const numHost = (ip, mask) => {
     return totalHost(ip, mask)-2;
 }
+
+export const range = (ip, mask) => {
+    let min = getNetworkAddress(ip, mask).split('.');
+    min[3] = (parseInt(min[3],10)+1).toString();
+    let max = broadcast(ip, mask).split('.');
+    max[3] = (parseInt(max[3],10)-1).toString();
+    return min.join('.')+' - '+max.join('.');
+}

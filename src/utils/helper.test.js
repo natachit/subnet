@@ -1,5 +1,5 @@
 import { convertToSubnet, tenToBinary, getNetworkAddress, wildCard, ipClass, cidr, short, 
-        binaryId, integerId, hexId, ipType, broadcast, totalHost, numHost } from './helper';
+        binaryId, integerId, hexId, ipType, broadcast, totalHost, numHost, range } from './helper';
 import { expect } from 'chai';
 
 describe('convert subnet test', () => {
@@ -103,5 +103,13 @@ describe('Number of Usable Hosts', () => {
     it('Number of Usable Hosts', () => {
         expect(numHost('10.0.0.0', 25)).to.equal(126)
         expect(numHost('10.0.0.0', 20)).to.equal(4094)
+    })
+})
+
+describe('Usable Host IP Range', () => {
+    it('Usable Host IP Range', () => {
+        expect(range('192.168.1.204', 24)).to.equal('192.168.1.1 - 192.168.1.254');
+        expect(range('192.168.1.204', 15)).to.equal('192.168.0.1 - 192.169.255.254');
+        expect(range('168.204.2.6', 6)).to.equal('168.0.0.1 - 171.255.255.254');
     })
 })
