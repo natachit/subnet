@@ -8,6 +8,9 @@ import {
 class App extends Component {
   state = {
     ip: '192.168.1.204',
+    mask: 32,
+    subnet: convertToSubnet(32),
+    ipclass: '',
   };
 
   onIpChange = event => {
@@ -15,17 +18,20 @@ class App extends Component {
     this.setState({ip: ip});
   }
 
+  onSubnetChange = event => {
+    let mask = event.target.value;
+    this.setState({mask: mask, subnet: convertToSubnet(mask)});
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
         <p className="App-intro">
-        {this.state.ip}
-        <input type="text" value={this.state.ip} onChange={this.onIpChange}/>
+        Subnet Calculator
         </p>
+        <p>ip <input type="text" value={this.state.ip} onChange={this.onIpChange}/></p>
+        <p>subnet <input type="int" value={this.state.mask} onChange={this.onSubnetChange}/></p>
+        {this.state.subnet}
       </div>
     );
   }

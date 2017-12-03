@@ -1,12 +1,15 @@
 export const convertToSubnet = (mask) => {
-    const subnet = [0, 0, 0, 0].map(() => {
-        const sub = '00000000'.split('').map(() => {
-            mask -=1;
-            return mask >=0 ? '1' : '0';
-        })
-        return parseInt(sub.join(''), 2);
-    });
-    return subnet.join('.');
+    if (mask>=0 && mask<=32) {
+        const subnet = [0, 0, 0, 0].map(() => {
+            const sub = '00000000'.split('').map(() => {
+                mask -=1;
+                return mask >=0 ? '1' : '0';
+            })
+            return parseInt(sub.join(''), 2);
+        });
+        return subnet.join('.');
+    }
+    return "Error! Subnet can't be calculate"
 }
 
 export const tenToBinary = (ip) => {
@@ -111,4 +114,15 @@ export const range = (ip, mask) => {
     let max = broadcast(ip, mask).split('.');
     max[3] = (parseInt(max[3],10)-1).toString();
     return min.join('.')+' - '+max.join('.');
+}
+
+export const checkIp = (ip) => {
+    let i
+    let ipNew = ip.split('.')
+    for (i=0; i<4; i++) {
+        if (isNaN(parseInt(ipNew[i])) || (parseInt(ipNew[i])>255 && parseInt(ipNew[i])<0)) {
+            return false
+        }
+    }
+    return true
 }
