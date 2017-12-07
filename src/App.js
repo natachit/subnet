@@ -49,14 +49,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p className="App-intro">
+        <p className="App-title">
         Subnet Calculator
         </p>
-        <p>ip <input type="text" value={this.state.ip} onChange={this.onIpChange}/></p>
-        <p>subnet <input type="int" value={this.state.mask} onChange={this.onSubnetChange}/></p>
+        <p>IP <input type="text" value={this.state.ip} onChange={this.onIpChange}/></p>
+        <p>Subnet <input type="int" value={this.state.mask} onChange={this.onSubnetChange}/></p>
         <button
         className="btn btn-default"
         onClick={this.calculate}>Calculate</button>
+        <div class="text">
         <p>IP Address: {this.state.output[0]}</p>
         <p>Network Address: {this.state.output[1]}</p>
         <p>Usable Host IP Range: {this.state.output[2]}</p>
@@ -73,6 +74,7 @@ class App extends Component {
         <p>Binary ID: {this.state.output[13]}</p>
         <p>Integer ID: {this.state.output[14]}</p>
         <p>Hex ID: {this.state.output[15]}</p>
+        </div>
       </div>
     );
   }
