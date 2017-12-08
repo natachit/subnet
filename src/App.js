@@ -16,6 +16,7 @@ class App extends Component {
     mask: 32,
     e: [],
     output: [],
+    status: false,
   };
 
   onIpChange = event => {
@@ -71,7 +72,8 @@ class App extends Component {
         <div className="App">
           <p className="App-title">Subnet Calculator</p>
           <TextField 
-            floatingLabelText="IP Address" 
+            floatingLabelText="IP Address"
+            hintText="ex. 192.168.1.204" 
             floatingLabelFixed={true}
             errorText={this.state.e[0]} 
             value={this.state.ip} 
@@ -79,29 +81,30 @@ class App extends Component {
           <br />
           <TextField 
             floatingLabelText="Subnet" 
+            hintText="ex. 32" 
             floatingLabelFixed={true}
             errorText={this.state.e[1]} 
             value={this.state.mask} 
             onChange={this.onSubnetChange}/>
-          <p>{this.state.e}</p>
+          <br />
           <FlatButton label="Calculate" primary={true} onClick={this.calculate}/>
           <div class="text">
-            <p>IP Address: {this.state.output[0]}</p>
-            <p>Network Address: {this.state.output[1]}</p>
-            <p>Usable Host IP Range: {this.state.output[2]}</p>
-            <p>Broadcast Address: {this.state.output[3]}</p>
-            <p>Total Number of Hosts: {this.state.output[4]}</p>
-            <p>Number of Usable Hosts: {this.state.output[5]}</p>
-            <p>Subnet Mask: {this.state.output[6]}</p>
-            <p>Wildcard Mask: {this.state.output[7]}</p>
-            <p>Binary Subnet Mask: {this.state.output[8]}</p>
-            <p>IP Class: {this.state.output[9]}</p>
-            <p>CIDR Notation: {this.state.output[10]}</p>
-            <p>IP Type: {this.state.output[11]}</p>
-            <p>Short: {this.state.output[12]}</p>
-            <p>Binary ID: {this.state.output[13]}</p>
-            <p>Integer ID: {this.state.output[14]}</p>
-            <p>Hex ID: {this.state.output[15]}</p>
+            <p>IP Address: <t class="output">{this.state.output[0]}</t></p>
+            <p>Network Address: <t class="output">{this.state.output[1]}</t></p>
+            <p>Usable Host IP Range: <t class="output">{this.state.output[2]}</t></p>
+            <p>Broadcast Address: <t class="output">{this.state.output[3]}</t></p>
+            <p>Total Number of Hosts: <t class="output">{this.state.output[4]}</t></p>
+            <p>Number of Usable Hosts: <t class="output">{this.state.output[5]}</t></p>
+            <p>Subnet Mask: <t class="output">{this.state.output[6]}</t></p>
+            <p>Wildcard Mask: <t class="output">{this.state.output[7]}</t></p>
+            <p>Binary Subnet Mask: <t class="output">{this.state.output[8]}</t></p>
+            <p>IP Class: <t class="output">{this.state.output[9]}</t></p>
+            <p>CIDR Notation: <t class="output">{this.state.output[10]}</t></p>
+            <p>IP Type: <t class="output">{this.state.output[11]}</t></p>
+            <p>Short: <t class="output">{this.state.output[12]}</t></p>
+            <p>Binary ID: <t class="output">{this.state.output[13]}</t></p>
+            <p>Integer ID: <t class="output">{this.state.output[14]}</t></p>
+            <p>Hex ID: <t class="output">{this.state.output[15]}</t></p>
           </div>
         </div>
       </MuiThemeProvider>
