@@ -132,3 +132,10 @@ export const checkIp = (ip) => {
     }
     return true
 }
+
+export const checkSubnet = (mask) => {
+    if (mask<=0 || mask>32 || mask%1!==0) {
+        return false
+    }
+    return true
+}
